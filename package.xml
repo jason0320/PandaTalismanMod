@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Meta>
+	<title>Panda's Talisman Mod</title>
+	<id>Mod_PandaTalismanMod</id>
+	<author>Now Happy Panda</author>
+	<loadPriority>100</loadPriority>
+	<description>
+		Allow Talisman loading and procing with ranged weapons, throwing weapons and procing multiple times from all off hand melee weapons
+	</description>
+	<version>0.23.45</version>
+</Meta>
