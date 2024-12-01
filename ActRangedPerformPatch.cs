@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
 using HarmonyLib;
+using UnityEngine;
 
 namespace Mod_PandaTalismanMod
 {
@@ -34,6 +36,10 @@ namespace Mod_PandaTalismanMod
 
         internal static void ProcTalisman(bool flagHit)
         {
+            if (Act.CC.ranged == null)
+            {
+                return;
+            }
             var weapon = Act.CC.ranged;
             if (weapon.c_ammo <= 0 || Act.CC.HasCondition<ConReload>())
             {
