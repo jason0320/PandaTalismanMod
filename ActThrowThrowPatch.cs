@@ -40,7 +40,7 @@ namespace Mod_PandaTalismanMod
             var weapon = Act.CC.Tool;
             if (Act.CC.ai.IsRunning)
             {
-                weapon = EClass.pc.TryGetThrowable();
+                weapon = Act.CC.TryGetThrowable();
             }
             bool flag3 = false;
             if (weapon.c_ammo <= 0 || Act.CC.HasCondition<ConReload>())
