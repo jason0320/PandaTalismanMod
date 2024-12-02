@@ -42,7 +42,7 @@ namespace Mod_PandaTalismanMod
             {
                 weapon = Act.CC.TryGetThrowable();
             }
-            else if (Act.CC.ai.IsRunning)
+            else if (!Act.CC.ai.IsRunning)
             {
                 weapon = Act.CC.Tool;
             }
