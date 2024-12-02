@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -37,18 +37,10 @@ namespace Mod_PandaTalismanMod
             {
                 return;
             }
-            var weapon = new Thing{ };
-            if (EClass.pc.ai.IsRunning)
+            var weapon = Act.CC.Tool;
+            if (Act.CC.ai.IsRunning)
             {
-                weapon = Act.CC.TryGetThrowable();
-            }
-            else if (!Act.CC.ai.IsRunning)
-            {
-                weapon = Act.CC.Tool;
-            }
-            else 
-            {
-                return;
+                weapon = EClass.pc.TryGetThrowable();
             }
             bool flag3 = false;
             if (weapon.c_ammo <= 0 || Act.CC.HasCondition<ConReload>())
