@@ -37,10 +37,18 @@ namespace Mod_PandaTalismanMod
             {
                 return;
             }
-            var weapon = Act.CC.Tool;
+            var weapon = new Thing { };
             if (Act.CC.ai.IsRunning)
             {
                 weapon = Act.CC.TryGetThrowable();
+            }
+            else if (Act.CC.ai.IsRunning)
+            {
+                weapon = Act.CC.Tool;
+            }
+            else 
+            {
+                return;
             }
             bool flag3 = false;
             if (weapon.c_ammo <= 0 || Act.CC.HasCondition<ConReload>())
