@@ -33,7 +33,7 @@ namespace Mod_PandaTalismanMod
 
         internal static void ProcTalisman(bool flagHit)
         {
-            if (Act.CC.Tool == null && Act.CC.TryGetThrowable() == null)
+            if (Act.CC.IsThrownWeapon == false && Act.CC.Tool == null && Act.CC.TryGetThrowable() == null)
             {
                 return;
             }
