@@ -3,9 +3,10 @@
 	<title>Panda's Talisman Mod</title>
 	<id>Mod_PandaTalismanMod</id>
 	<author>Now Happy Panda</author>
+	<tags>General,Cheat,Item</tags>
 	<loadPriority>100</loadPriority>
 	<description>
 		Allow Talisman loading and procing with ranged weapons, throwing weapons and procing multiple times from all off hand melee weapons
 	</description>
-	<version>0.23.46</version>
+	<version>0.23.48</version>
 </Meta>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
@@ -12,10 +13,13 @@ namespace Mod_PandaTalismanMod
     [HarmonyPatch]
     internal class ActRangedPerformPatch
     {
+
         internal static MethodInfo TargetMethod()
         {
-            var closures = AccessTools.FirstInner(typeof(ActRanged), t => t.Name.Contains("DisplayClass10_0"));
-            return AccessTools.Method(closures, "<Perform>g__Shoot|1");
+            return typeof(ActRanged).GetNestedTypes(AccessTools.all)
+                .Append(typeof(ActRanged))
+                .SelectMany(t => t.GetMethods(AccessTools.all))
+                .First(mi => mi.Name.Contains("<Perform>g__Shoot|"));
         }
 
         [HarmonyTranspiler]

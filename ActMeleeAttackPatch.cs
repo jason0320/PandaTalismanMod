@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
@@ -10,8 +11,15 @@ namespace Mod_PandaTalismanMod
     [HarmonyPatch]
     internal class ActMeleePerformPatch
     {
+        internal static MethodInfo TargetMethod()
+        {
+            return typeof(ActMelee).GetNestedTypes(AccessTools.all)
+                .Append(typeof(ActMelee))
+                .SelectMany(t => t.GetMethods(AccessTools.all))
+                .First(mi => mi.GetParameters().Length == 4 && mi.Name.Contains("<Attack>g__Attack|"));
+        }
+
         [HarmonyTranspiler]
-        [HarmonyPatch(typeof(ActMelee), "<Attack>g__Attack|13_1")]
         internal static IEnumerable<CodeInstruction> OnAttackIl(IEnumerable<CodeInstruction> instructions)
         {
             return new CodeMatcher(instructions)

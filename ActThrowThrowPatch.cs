@@ -33,23 +33,11 @@ namespace Mod_PandaTalismanMod
 
         internal static void ProcTalisman(bool flagHit)
         {
-            if (Act.CC.IsThrownWeapon == false && Act.CC.Tool == null && Act.CC.TryGetThrowable() == null)
+            if (Act.CC.TryGetThrowable() == null)
             {
                 return;
             }
-            var weapon = new Thing { };
-            if (Act.CC.ai.IsRunning)
-            {
-                weapon = Act.CC.TryGetThrowable();
-            }
-            else if (!Act.CC.ai.IsRunning)
-            {
-                weapon = Act.CC.Tool;
-            }
-            else 
-            {
-                return;
-            }
+            var weapon = Act.CC.TryGetThrowable();
             bool flag3 = false;
             if (weapon.c_ammo <= 0 || Act.CC.HasCondition<ConReload>())
             {
